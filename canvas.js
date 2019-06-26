@@ -11,7 +11,6 @@ var centreX = canvas.width/2;
 var centreY = canvas.height/2;
 
 var scale = 50;
-//var scale = document.getElementById("Scale").value;
 
 var cols = Math.floor(canvas.width / scale);
 var rows = Math.floor(canvas.height / scale);
@@ -105,12 +104,6 @@ function Cell(i , j){
     this.Show = function(){
         var x = this.i * scale;
         var y = this.j * scale;
-        /*
-        context.beginPath();
-        context.rect(this.i * scale, this.j * scale, 1 * scale, 1 * scale);
-        context.strokeStyle = "black";
-        context.stroke();
-        */
 
         if(this.visited){
             context.beginPath();
@@ -169,15 +162,13 @@ var grid = [];
 
 for(var j = 0; j < rows; j++){
     for(var i = 0; i < cols; i++){
-        var cell = new Cell(i, j);  // [Simplify later? ]
-        grid.push(cell);            // [                ]
+        grid.push(new Cell(i, j));
     }
 }
 
 var stack = [];
 var current = grid[0];
 var next;
-//var next = current.CheckNeighbours();
 
 var timer = 0;
 var speed = 1;
@@ -218,7 +209,11 @@ function animate(){
 function reset(){
     context.clearRect(0, 0, canvas.width, canvas.height);
     scale = parseInt(document.getElementById("Scale").value);
-    speed = parseInt(document.getElementById("Speed").value)
+    speed = parseInt(document.getElementById("Speed").value);
+
+    if (speed < 1){
+        speed = 1;
+    }
 
     cols = Math.floor(canvas.width / scale);
     rows = Math.floor(canvas.height / scale);

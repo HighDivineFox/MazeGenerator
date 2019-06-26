@@ -3,29 +3,13 @@
     <head>
         <meta charset="UTF-8"></meta>
         <title>Maze Generator</title>
-        <link rel="stylesheet" href="..\..\CSS\css.css"></link>
+        <link rel="stylesheet" href=".\css.css"></link>
     </head>
-    <style>
-        canvas{
-            border: 1px solid black;
-            margin: 10px;
-        }
-
-        body{
-            margin : 0;
-        }
-
-    </style>
     <body>
         <h1>
             Maze Generator
-        </h1>
-        <div>
-            <?php include '..\..\menu.php'; ?>
-        </div>
-        
+        </h1>        
         <canvas></canvas>
-        
 
         <div id="settings">
             <h2>Settings</h2>
@@ -45,6 +29,9 @@
             <div class="explanation">
                 <h3>Concepts:</h3>
                 <h4>Concept 1</h4>
+                <p>Uses a recursive backtracking algorithm to randomly generate a maze. This method is used when you need a maze where every 
+                        square is reachable from every other square.
+                </p>
             </div>
         </div>
         
